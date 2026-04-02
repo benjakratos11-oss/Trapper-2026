@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trapper 2026</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+  background: radial-gradient(circle, #1a1a1a, #000);
+  color: white;
+}
+
+/* Glow estilo sci-fi */
+.glow {
+  text-shadow: 0 0 10px orange, 0 0 20px orange;
+}
+
+/* Animaciones */
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Botón pro */
+.btn-pro {
+  background: linear-gradient(45deg, orange, #ffcc00);
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-pro:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px orange;
+}
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+</style>
+
+</head>
+
+<body onclick="startExperience()" class="fade-in">
+
+<!-- 🔊 SONIDOS -->
+<audio id="clickSound" src="assets/click.mp3"></audio>
+<audio id="hoverSound" src="assets/hover.mp3"></audio>
+<audio id="startSound" src="assets/start.mp3"></audio>
+<audio id="music" src="assets/music.mp3" loop></audio>
+
+<!-- HEADER -->
+<header class="text-center p-10">
+  <img src="images/logo.png" class="mx-auto w-28 mb-4">
+  <h1 class="text-5xl font-bold glow">TRAPPER 2026</h1>
+  <p class="text-lg text-gray-300 mt-2">Candidato a Comandante - Batallón 212</p>
+</header>
+
+<!-- HERO -->
+<section class="text-center p-6 max-w-3xl mx-auto">
+  <h2 class="text-3xl font-bold mb-4 glow">Junto a vos por una buena gestión</h2>
+  <p class="text-gray-300">
+    El comandante Kyle, recientemente degradado a CPTM, presenta su candidatura en busca de la vuelta al poder, con una visión de liderazgo, compromiso y renovación. Aspira a ser comandante nuevamente con una propuesta basada en disciplina, gestión eficiente y ascensos justos, buscando fortalecer la unidad del Batallón de Ataque 212th.
+  </p>
+</section>
+
+<!-- POSTERS -->
+<section class="p-10 text-center">
+  <h3 class="text-3xl font-bold mb-8 glow">Campaña oficial</h3>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <img src="images/poster1.png" class="rounded-xl hover:scale-105 transition shadow-lg" onmouseover="playHover()">
+    <img src="images/poster2.png" class="rounded-xl hover:scale-105 transition shadow-lg" onmouseover="playHover()">
+    <img src="images/poster3.png" class="rounded-xl hover:scale-105 transition shadow-lg" onmouseover="playHover()">
+    <img src="images/poster4.png" class="rounded-xl hover:scale-105 transition shadow-lg" onmouseover="playHover()">
+  </div>
+</section>
+
+<!-- BOTÓN -->
+<section class="text-center p-10">
+  <h3 class="text-3xl font-bold mb-6 glow">Unite al movimiento</h3>
+
+  <a href="assets/formulario_trapper_2026_mejorado.pdf" target="_blank" onclick="playClick()">
+    <button class="btn-pro px-8 py-4 rounded-xl text-lg"
+            onmouseover="playHover()">
+      DESCARGAR FORMULARIO
+    </button>
+  </a>
+</section>
+
+<!-- PROPUESTAS -->
+<section class="p-10">
+  <h3 class="text-3xl font-bold text-center mb-10 glow">Propuestas</h3>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="card p-6 rounded-xl hover:scale-105 transition" onmouseover="playHover()">
+      <h4 class="text-xl font-bold mb-2">Equipamiento</h4>
+      <p class="text-gray-300">Modernización total del armamento y protección.</p>
+    </div>
+
+    <div class="card p-6 rounded-xl hover:scale-105 transition" onmouseover="playHover()">
+      <h4 class="text-xl font-bold mb-2">Estrategia</h4>
+      <p class="text-gray-300">Nuevas tácticas para mejorar rendimiento en combate.</p>
+    </div>
+
+    <div class="card p-6 rounded-xl hover:scale-105 transition" onmouseover="playHover()">
+      <h4 class="text-xl font-bold mb-2">Ascensos</h4>
+      <p class="text-gray-300">Ascensos justos, en tiempo y forma.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center p-6 text-gray-500 text-sm">
+  © 2026 Trapper 212 - Todos los derechos reservados
+</footer>
+
+<!-- SCRIPT -->
+<script>
+let started = false;
+
+function startExperience() {
+  if (!started) {
+    document.getElementById("startSound").play();
+    const music = document.getElementById("music");
+    music.volume = 0.2;
+    music.play();
+    started = true;
+  }
+}
+
+function playClick() {
+  document.getElementById("clickSound").play();
+}
+
+function playHover() {
+  const h = document.getElementById("hoverSound");
+  h.currentTime = 0;
+  h.play();
+}
+</script>
+
+</body>
+</html>
